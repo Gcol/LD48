@@ -14,11 +14,19 @@ public class Puce : MonoBehaviour
     [SerializeField] [Min(0)] private float distanceMax;
     [SerializeField] [Min(0)] private float vitesseMax;
     [Tooltip("Vitesse de déplacement pendant le aircontrole")]
-    [SerializeField] [Min(0)] private float vitesseSaut;
+    [SerializeField] [Min(0)] private float vitesseMaxSaut;
     [SerializeField] [Min(0)] private float puissanceSaut;
     [SerializeField] [Min(0)] private float distanceSaut;
 
-    private bool saute = false;
+    private float profondeurDefaut;
+
+    private bool saute
+    {
+        get
+        {
+            return rb.velocity.z > 0.001f || rb.velocity.z < -0.001f;
+        }
+    }
 
     [Header("Controles")]
     [SerializeField] private ControlesParam paramControles;
@@ -35,13 +43,14 @@ public class Puce : MonoBehaviour
     private void Awake()
     {
         Physics.gravity = Vector3.forward * 9.8f;
+        profondeurDefaut = transform.position.z;
     }
 
     private void Update()
     {
         
         AffecterControles();
-        
+        SimulerPerspective();
     }
 
     private void FixedUpdate()
@@ -58,7 +67,16 @@ public class Puce : MonoBehaviour
 
         float curseur = distance / distanceMax;
 
-        float vitesseAppliquee = Mathf.Lerp(0, vitesseMax, curseur);
+        float vitesseAppliquee;
+
+        if (saute)
+        {
+            vitesseAppliquee = Mathf.Lerp(0, vitesseMaxSaut, curseur);
+        }
+        else
+        {
+            vitesseAppliquee = Mathf.Lerp(0, vitesseMax, curseur);
+        }
 
         rb.velocity =  (Vector3)direction * vitesseAppliquee * distance * Time.fixedDeltaTime + Vector3.forward * rb.velocity.z;
 
@@ -69,15 +87,23 @@ public class Puce : MonoBehaviour
     {
         if(Input.GetMouseButtonUp(0))
         {
-            Vector2 positionSouris = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 direction = (positionSouris - (Vector2)transform.position).normalized;
-            Sauter(direction);
+            if (saute == false)
+            {
+                Vector2 positionSouris = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 direction = (positionSouris - (Vector2)transform.position).normalized;
+                Sauter(direction);
+            }
         }
     }
     
     private void Sauter(Vector2 direction)
     {
-        rb.AddForce(-Vector3.forward * puissanceSaut);
+        rb.AddForce(((Vector3)direction - Vector3.forward) * puissanceSaut);
+    }
+
+    private void SimulerPerspective()
+    {
+        transform.localScale = Vector3.Max(Vector3.zero, Vector3.one * (1 - transform.position.z - profondeurDefaut));
     }
 
     //private IEnumerator AppliquerSaut(Vector2 direction)
