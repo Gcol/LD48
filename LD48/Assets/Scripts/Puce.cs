@@ -13,6 +13,7 @@ public class Puce : MonoBehaviour
     [Tooltip("distance à de la puce au dessus de laquelle les mouvements de la souris ne sont pas pris en compte ")]
     [SerializeField] [Min(0)] private float distanceMax;
     [SerializeField] [Min(0)] private float vitesseMax;
+    [SerializeField] [Min(0)] private float vitesse;
     [Tooltip("Vitesse de déplacement pendant le aircontrole")]
     [SerializeField] [Min(0)] private float vitesseMaxSaut;
     [SerializeField] [Min(0)] private float puissanceSaut;
@@ -38,6 +39,12 @@ public class Puce : MonoBehaviour
             Gizmos.DrawWireSphere(transform.position, distanceMin);
             Gizmos.DrawWireSphere(transform.position, distanceMax);
         }
+        Vector3 positionSouris = Input.mousePosition;
+        positionSouris.z = Camera.main.transform.position.z + 300;
+        positionSouris = Camera.main.ScreenToWorldPoint(positionSouris);
+
+        //Gizmos.DrawCube(positionSouris, Vector3.one);
+        //Gizmos.DrawLine(transform.position, transform.position + transform.right);
     }
 
     private void Awake()
@@ -49,8 +56,8 @@ public class Puce : MonoBehaviour
     private void Update()
     {
         
-        AffecterControles();
-        SimulerPerspective();
+        //AffecterControles();
+        //SimulerPerspective();
     }
 
     private void FixedUpdate()
@@ -60,8 +67,12 @@ public class Puce : MonoBehaviour
 
     private void SuiveSouris()
     {
-        Vector2 positionSouris = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (positionSouris - (Vector2)transform.position).normalized;
+
+        Vector3 positionSouris = Input.mousePosition;
+        positionSouris.z = Camera.main.transform.position.z + 250;
+        positionSouris = Camera.main.ScreenToWorldPoint(positionSouris);
+        Vector3 direction = (positionSouris - transform.position).normalized;
+
         float distance = Mathf.Max(0, Vector2.Distance(transform.position, positionSouris) - distanceMin);
         distance = Mathf.Min(distance, distanceMax);
 
@@ -78,21 +89,53 @@ public class Puce : MonoBehaviour
             vitesseAppliquee = Mathf.Lerp(0, vitesseMax, curseur);
         }
 
-        rb.velocity =  (Vector3)direction * vitesseAppliquee * distance * Time.fixedDeltaTime + Vector3.forward * rb.velocity.z;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        rb.velocity =  direction * vitesseAppliquee * distance * Time.fixedDeltaTime + Vector3.forward * rb.velocity.z;
 
         Debug.DrawLine(transform.position, positionSouris,Color.magenta);
     }
 
     private void AffecterControles()
     {
+        Vector3 direction = Vector3.zero;
+
+        if(Input.GetKey(KeyCode.Q))
+        {
+            direction.x -= 1;
+        }
+        if(Input.GetKey(KeyCode.D))
+        {
+            direction.x += 1;
+        }
+        if(Input.GetKey(KeyCode.Z))
+        {
+            direction.y += 1;
+        }
+        if(Input.GetKey(KeyCode.S))
+        {
+            direction.y -= 1;
+        }
+
+        rb.AddForce(direction * vitesse * Time.deltaTime);
+        if(rb.velocity.magnitude > vitesseMax)
+        {
+            rb.velocity = rb.velocity.normalized * vitesseMax;
+        }
+        if (direction != Vector3.zero)
+        {
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+
         if(Input.GetMouseButtonUp(0))
         {
-            if (saute == false)
-            {
-                Vector2 positionSouris = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 direction = (positionSouris - (Vector2)transform.position).normalized;
-                Sauter(direction);
-            }
+            //if (saute == false)
+            //{
+            //    Vector2 positionSouris = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //    Vector2 direction = (positionSouris - (Vector2)transform.position).normalized;
+            //    Sauter(direction);
+            //}
         }
     }
     

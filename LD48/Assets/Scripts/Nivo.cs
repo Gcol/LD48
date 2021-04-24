@@ -8,9 +8,10 @@ public class Nivo : MonoBehaviour
     [SerializeField] private float tailleDestruction;
     [SerializeField] private float vitesseDilatation;
     [SerializeField] private Section prefabSection;
-    [SerializeField] private float ratioDistance;
+    private const float ratioDistance = 0.725f;
+    [SerializeField] [Min(0)] private float decalageZ = 0.05f;
     [SerializeField] [Min(0)] private int nbrSectionsAGenerer;
-
+    [SerializeField] [Min(1)] private float taillePremierDonut;
     private int nbrSections;
 
     private void Awake()
@@ -21,7 +22,7 @@ public class Nivo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(GenererSections());
+        //StartCoroutine(GenererSections());
     }
 
     // Update is called once per frame
@@ -75,18 +76,20 @@ public class Nivo : MonoBehaviour
             if (i > 0)
             {
                 Vector3 nvlleTaile = sections[i - 1].transform.localScale;
-                nvlleTaile.x -= nvlleTaile.x / ratioDistance;
-                nvlleTaile.y -= nvlleTaile.y / ratioDistance;
+                nvlleTaile.x = nvlleTaile.x * ratioDistance;
+                nvlleTaile.y = nvlleTaile.y * ratioDistance;
 
                 //print(sections[i - 1].transform.localScale.x + " - " + sections[i - 1].transform.localScale.x / 12 + " = " + nvlleTaile.x);
-
-                sections[i].transform.localScale = nvlleTaile;
+                Vector3 nvellePosition = sections[i - 1].transform.localPosition;
+                nvellePosition.z += decalageZ;
+                sections[i].transform.localPosition = nvellePosition;
+                //sections[i].transform.localScale = nvlleTaile;
             }
             else
             {
-                sections[i].transform.localScale = new Vector3(1, 1, 0) * 30 + Vector3.forward;
+                sections[i].transform.localScale = new Vector3(1, 1, 1) * taillePremierDonut;
             }
-            sections[i].sprRend.sortingOrder = i;
+            //sections[i].sprRend.sortingOrder = i;
         }
     }
 
