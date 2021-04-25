@@ -38,4 +38,20 @@ public class Evenement : ScriptableObject
     {
         RepliqueRobot.Instance.CacherTexte();
     }
+
+
+    public void OuvrirRoueDialogue(bool ouvrir)
+    {
+        RoueDialogue.Instance.OuvrirRoue(ouvrir);
+    }
+
+    public void AjouterOptionDialogue(OptionDialogue option)
+    {
+        RoueDialogue.Instance.AjouterOptionDialogue(option);
+    }
+
+    public void ChangerGradientSection(GradientScript gradient)
+    {
+        Nivo.Instance.ChangerGradientGenerationSection(gradient.gradient);
+    }
 }

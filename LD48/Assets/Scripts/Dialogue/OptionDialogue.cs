@@ -7,7 +7,24 @@ using UnityEngine.Events;
 public class OptionDialogue : ScriptableObject
 {
     public UnityEvent quandChoisi;
+    public UnityEvent quandHover;
+    public Gradient gradientHover;
 
     [TextArea(30,200)]
     public string texte;
+
+    public void OuvrirRoueDialogue(bool ouvrir)
+    {
+        RoueDialogue.Instance.OuvrirRoue(ouvrir);
+    }
+
+    public void AjouterOptionDialogue(OptionDialogue option)
+    {
+        RoueDialogue.Instance.AjouterOptionDialogue(option);
+    }
+    public void AjouterOptionDialogue()
+    {
+        RoueDialogue.Instance.AjouterOptionDialogue(this);
+    }
+
 }
