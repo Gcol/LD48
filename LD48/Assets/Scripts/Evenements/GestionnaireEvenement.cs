@@ -21,7 +21,7 @@ public class GestionnaireEvenement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        LancerEvenement(premierEvnement);
     }
 
     // Update is called once per frame
@@ -29,12 +29,6 @@ public class GestionnaireEvenement : MonoBehaviour
     {
         
     }
-
-    public void Init()
-    {
-        LancerEvenement(premierEvnement);
-    }
-
     public void LancerEvenement(Evenement evenement)
     {
         evenement.quandLance.Invoke();
