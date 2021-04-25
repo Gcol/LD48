@@ -14,8 +14,8 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: LD48
-  defaultCursor: {fileID: 2800000, guid: 733974c05e893d84a9e4497cff59c709, type: 3}
-  cursorHotspot: {x: 0.55, y: 0}
+  defaultCursor: {fileID: 2800000, guid: 65f655b6f909a7942b36012a835d790a, type: 3}
+  cursorHotspot: {x: 48, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
