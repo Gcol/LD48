@@ -96,6 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprRend: {fileID: 5763505967139072611}
-  temps: 4
+  temps: 1
   forceRayon: 0.04
-  rayonMax: 3
+  rayonMax: 25

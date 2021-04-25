@@ -29,7 +29,7 @@ public class Nivo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(RoutineSpawn());
     }
 
     // Update is called once per frame
@@ -41,11 +41,6 @@ public class Nivo : MonoBehaviour
     private void FixedUpdate()
     {
 
-    }
-
-    public void Init()
-    {
-        StartCoroutine(RoutineSpawn());
     }
 
 
