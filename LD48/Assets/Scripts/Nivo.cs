@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class Nivo : MonoBehaviour
 {
+
+    static private Nivo cela;
+
+    static public Nivo Instance
+    {
+        get
+        {
+            if (!cela) cela = FindObjectOfType<Nivo>();
+            return cela;
+        }
+    }
+
+
     public Section[] sections;
     [SerializeField] private float tailleDestruction;
     [SerializeField] private float vitesseDilatation;
@@ -13,6 +26,7 @@ public class Nivo : MonoBehaviour
     [SerializeField] [Min(0)] private int nbrSectionsAGenerer;
     [SerializeField] [Min(1)] private float taillePremierDonut;
     private int nbrSections;
+    [SerializeField] private Gradient gradient;
 
     private void Awake()
     {
@@ -67,7 +81,7 @@ public class Nivo : MonoBehaviour
         {
             if(Instantiate(prefabSection.gameObject, transform).TryGetComponent(out sections[i]))
             {
-                sections[i].sprRend.color = Random.ColorHSV();
+                sections[i].sprRend.color = gradient.Evaluate(Random.Range(0f,1f));
             }
         }
 
@@ -123,5 +137,10 @@ public class Nivo : MonoBehaviour
                 nvlleSection.sprRend.sortingOrder = nbrSections;
             }
         }
+    }
+
+    public void ChangerGradientGenerationSection(Gradient nvgradient)
+    {
+        gradient = nvgradient;
     }
 }
