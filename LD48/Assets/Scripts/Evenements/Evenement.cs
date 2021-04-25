@@ -54,4 +54,9 @@ public class Evenement : ScriptableObject
     {
         Nivo.Instance.ChangerGradientGenerationSection(gradient.gradient);
     }
+
+    public void LancerAnimation(int indexAnimation)
+    {
+        ListeAnimations.Instance.LancerAnimation(indexAnimation);
+    }
 }
