@@ -16,4 +16,8 @@ MonoBehaviour:
   quandLance:
     m_PersistentCalls:
       m_Calls: []
-  suites: []
+  suites:
+  - delai: 0
+    prochaineEvent:
+      m_PersistentCalls:
+        m_Calls: []
