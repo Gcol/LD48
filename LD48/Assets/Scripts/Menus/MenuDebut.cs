@@ -7,6 +7,7 @@ using TMPro;
 public class MenuDebut : MonoBehaviour
 {
     [SerializeField] private float tempsFondu;
+    [SerializeField] private Button[] boutons;
     public bool estActif = true;
 
     private System.Action quandFonduFini;
@@ -32,27 +33,50 @@ public class MenuDebut : MonoBehaviour
             {
                 GameManager.Instance.CommencerJeu();
             });
-            StartCoroutine(FonduMenu());
+            StartCoroutine(FonduMenu(true));
         }
     }
 
-    private IEnumerator FonduMenu()
+    private IEnumerator FonduMenu(bool quitter)
     {
         Image[] graphismeMenu = GetComponentsInChildren<Image>();
         TextMeshProUGUI[] textes = GetComponentsInChildren<TextMeshProUGUI>();
 
-        for (float i = 1; i > 0; i -= Time.deltaTime/tempsFondu)
+        if(quitter)
         {
-            foreach (Image image in graphismeMenu)
+            foreach (Button bouton in boutons)
             {
-                image.color -= new Color(0, 0, 0, Time.deltaTime / tempsFondu);
+                bouton.interactable = false;
             }
-            foreach (TextMeshProUGUI texte in textes)
+            for (float i = 1; i > 0; i -= Time.deltaTime/tempsFondu)
             {
-                texte.color -= new Color(0, 0, 0, Time.deltaTime / tempsFondu);
+                foreach (Image image in graphismeMenu)
+                {
+                    image.color -= new Color(0, 0, 0, Time.deltaTime / tempsFondu);
+                }
+                foreach (TextMeshProUGUI texte in textes)
+                {
+                    texte.color -= new Color(0, 0, 0, Time.deltaTime / tempsFondu);
+                }
+                yield return new WaitForEndOfFrame();
             }
-            yield return new WaitForEndOfFrame();
         }
+        else
+        {
+            for (float i =0; i < 1; i += Time.deltaTime / tempsFondu)
+            {
+                foreach (Image image in graphismeMenu)
+                {
+                    image.color += new Color(0, 0, 0, Time.deltaTime / tempsFondu);
+                }
+                foreach (TextMeshProUGUI texte in textes)
+                {
+                    texte.color += new Color(0, 0, 0, Time.deltaTime / tempsFondu);
+                }
+                yield return new WaitForEndOfFrame();
+            }
+        }
+
         quandFonduFini.Invoke();
     }
 
@@ -69,7 +93,7 @@ public class MenuDebut : MonoBehaviour
             Application.OpenURL("https://www.youtube.com/watch?v=zXvTfca7i6A");
 #endif
         });
-        StartCoroutine(FonduMenu());
+        StartCoroutine(FonduMenu(true));
     }
 }
 

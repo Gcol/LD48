@@ -33,9 +33,9 @@ public class ListeAnimations : MonoBehaviour
     {
         if (index > animations.Count - 1) throw new System.Exception("L'index d'animation est plus grand que le nombre d'animation,\n" +
               "Regarde bien l'objet ListeAnimations dans ta scene pour vérifier le nombre d'animations");
-        if(Instantiate(animations[index].transform.root.gameObject, transform).TryGetComponent(out Animator anim))
+        if(Instantiate(animations[index].transform.root.gameObject, transform).TryGetComponent(out TomberProfond anim))
         {
-
+            anim.transform.position = Random.insideUnitSphere *  25f;
         }
     }
 }
