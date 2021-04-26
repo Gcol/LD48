@@ -1,47 +1,14 @@
 fileFormatVersion: 2
-guid: adf85cd195bdc3546aa2d39f17d63de7
+guid: 84a769b9d1265cb4ebb6504b07bf965e
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: 1827226128182048838
-    second: Take 001
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 08 - Default
-    second: {fileID: 2100000, guid: eb05c974ef368d54897a79a1eac217e0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: body89
-    second: {fileID: 2100000, guid: 8014d176c9a1b4a48b37b046e4ffe526, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: bouche
-    second: {fileID: 2100000, guid: 9caa796d48afbbb4d9308fa31e79f727, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: dent
-    second: {fileID: 2100000, guid: a0adf1bcacde6424d8197e1713fe0fb4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: verre
-    second: {fileID: 2100000, guid: 2701f93e6ab5caf4a826894855c655d1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: yeux
-    second: {fileID: 2100000, guid: 22a0658030e6f9c45b4fe8c8585f15d5, type: 2}
+  internalIDToNameTable: []
+  externalObjects: {}
   materials:
     materialImportMode: 2
-    materialName: 1
+    materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -67,7 +34,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 10
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -118,7 +85,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 100
+    globalScale: 0.010000001
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
