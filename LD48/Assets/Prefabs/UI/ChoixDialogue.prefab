@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20054cbf1c434a4fa794974660ce03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionDialogue: {fileID: 11400000, guid: d2e8df4c10bd83e45a1a95b1831913ff, type: 2}
+  optionDialogue: {fileID: 0}
   PanelFond: {fileID: 6667687386630282767}
   texte: {fileID: 6667687385699222576}
   couleurTexteDefaut: {r: 1, g: 1, b: 1, a: 1}
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.65882355}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

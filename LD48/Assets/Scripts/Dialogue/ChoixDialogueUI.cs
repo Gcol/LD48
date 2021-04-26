@@ -18,8 +18,8 @@ public class ChoixDialogueUI : MonoBehaviour
     void Start()
     {
         StartCoroutine(Hover());
-        texte.color = couleurTexteDefaut - new Color(0, 0, 0, 1);
-        PanelFond.color = PanelFond.color - new Color(0, 0, 0, 1);
+        texte.color -=  new Color(0, 0, 0, 1);
+        PanelFond.color -= new Color(0, 0, 0, 1);
     }
 
     // Update is called once per frame

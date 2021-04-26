@@ -27,4 +27,9 @@ public class OptionDialogue : ScriptableObject
         RoueDialogue.Instance.AjouterOptionDialogue(this);
     }
 
+    public void OuvrirURL(string URL)
+    {
+        Application.OpenURL(URL);
+    }
+
 }

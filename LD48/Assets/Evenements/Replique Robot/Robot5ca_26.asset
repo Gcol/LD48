@@ -12,8 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78fe34c937062994f975901c99cda730, type: 3}
   m_Name: Robot5ca_26
   m_EditorClassIdentifier: 
-  tempsEvenement: 0
+  tempsEvenement: 2
   quandLance:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 405039e8d3529fe43b0823e887d2ac32, type: 2}
+        m_TargetAssemblyTypeName: Evenement, Assembly-CSharp
+        m_MethodName: ChangerTempsFondu
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 405039e8d3529fe43b0823e887d2ac32, type: 2}
+        m_TargetAssemblyTypeName: Evenement, Assembly-CSharp
+        m_MethodName: LancerRepliqueRobot
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "Ah, tu peux pas y a les jumeaux qui matent un porno
+            en diagonale - il te reste 3 asperges *\xE0 lire avec la voix de Kad
+            Merad dans sa t\xEAte*"
+          m_BoolArgument: 0
+        m_CallState: 2
   suites: []

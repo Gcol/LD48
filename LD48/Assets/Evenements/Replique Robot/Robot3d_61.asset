@@ -12,8 +12,112 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78fe34c937062994f975901c99cda730, type: 3}
   m_Name: Robot3d_61
   m_EditorClassIdentifier: 
-  tempsEvenement: 0
+  tempsEvenement: 2
   quandLance:
     m_PersistentCalls:
-      m_Calls: []
-  suites: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 405039e8d3529fe43b0823e887d2ac32, type: 2}
+        m_TargetAssemblyTypeName: Evenement, Assembly-CSharp
+        m_MethodName: ChangerTempsFondu
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 405039e8d3529fe43b0823e887d2ac32, type: 2}
+        m_TargetAssemblyTypeName: Evenement, Assembly-CSharp
+        m_MethodName: LancerRepliqueRobot
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Sure thing - what's your spirit animal?
+          m_BoolArgument: 0
+        m_CallState: 2
+  suites:
+  - delai: 0
+    prochaineEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 405039e8d3529fe43b0823e887d2ac32, type: 2}
+          m_TargetAssemblyTypeName: Evenement, Assembly-CSharp
+          m_MethodName: AjouterOptionDialogue
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 11b41dbae2653f248995971c1a116fa5, type: 2}
+            m_ObjectArgumentAssemblyTypeName: OptionDialogue, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 405039e8d3529fe43b0823e887d2ac32, type: 2}
+          m_TargetAssemblyTypeName: Evenement, Assembly-CSharp
+          m_MethodName: AjouterOptionDialogue
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: acd85fb81f15abf45b8c188760767eb0, type: 2}
+            m_ObjectArgumentAssemblyTypeName: OptionDialogue, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 405039e8d3529fe43b0823e887d2ac32, type: 2}
+          m_TargetAssemblyTypeName: Evenement, Assembly-CSharp
+          m_MethodName: AjouterOptionDialogue
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 7473d15c2d535f242814214922117b78, type: 2}
+            m_ObjectArgumentAssemblyTypeName: OptionDialogue, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 405039e8d3529fe43b0823e887d2ac32, type: 2}
+          m_TargetAssemblyTypeName: Evenement, Assembly-CSharp
+          m_MethodName: AjouterOptionDialogue
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 1f04d16a99bec564c81f88efef2acf77, type: 2}
+            m_ObjectArgumentAssemblyTypeName: OptionDialogue, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 405039e8d3529fe43b0823e887d2ac32, type: 2}
+          m_TargetAssemblyTypeName: Evenement, Assembly-CSharp
+          m_MethodName: AjouterOptionDialogue
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: c8a70ccd3c3e93a45be78d6dc7636e6a, type: 2}
+            m_ObjectArgumentAssemblyTypeName: OptionDialogue, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - delai: 2
+    prochaineEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 405039e8d3529fe43b0823e887d2ac32, type: 2}
+          m_TargetAssemblyTypeName: Evenement, Assembly-CSharp
+          m_MethodName: OuvrirRoueDialogue
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
