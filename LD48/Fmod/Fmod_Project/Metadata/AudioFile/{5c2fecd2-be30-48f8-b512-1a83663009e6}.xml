@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{5c2fecd2-be30-48f8-b512-1a83663009e6}">
+		<property name="assetPath">
+			<value>SFX_Insolent_01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.238104166666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b1db2bf5-cba4-4cef-8455-a0d5b0ab713f}</destination>
+		</relationship>
+	</object>
+</objects>

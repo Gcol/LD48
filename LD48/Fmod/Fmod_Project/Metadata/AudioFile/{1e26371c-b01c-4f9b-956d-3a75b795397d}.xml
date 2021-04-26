@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{1e26371c-b01c-4f9b-956d-3a75b795397d}">
+		<property name="assetPath">
+			<value>SFX_Daring_01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.238104166666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b1db2bf5-cba4-4cef-8455-a0d5b0ab713f}</destination>
+		</relationship>
+	</object>
+</objects>
