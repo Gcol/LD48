@@ -44,7 +44,7 @@ public abstract class MatosTexte : MonoBehaviour
             for (float i = 1; i >= 0; i -= Time.deltaTime / tempsDuFondu)
             {
                 // set color with i as alpha
-                texte.color = new Color(1, 1, 1, i);
+                texte.color = new Color(0, 0, 0, i);
                 yield return null;
             }
         }
@@ -53,7 +53,7 @@ public abstract class MatosTexte : MonoBehaviour
             for (float i = 0; i <= 1; i += Time.deltaTime / tempsDuFondu)
             {
                 // set color with i as alpha
-                texte.color = new Color(1, 1, 1, i);
+                texte.color = new Color(0, 0, 0, i);
                 yield return null;
             }
         }   
