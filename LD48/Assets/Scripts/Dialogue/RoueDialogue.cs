@@ -65,8 +65,11 @@ public class RoueDialogue : MonoBehaviour
     public void OuvrirRoue(bool ouvrir)
     {
         StartCoroutine(Fondu(ouvrir));
-        if(!ouvrir)
-        {
+        rectTrans.localRotation = new Quaternion();
+        curseur = 0;
+
+        if (!ouvrir)
+        {    
             listeOptions[curseur].estHover = false;
         }
     }
