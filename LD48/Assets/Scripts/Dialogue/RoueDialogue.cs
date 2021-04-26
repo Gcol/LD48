@@ -43,7 +43,7 @@ public class RoueDialogue : MonoBehaviour
             {
                 Incrementercurseur(true);
             }
-            else if(Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.A))
+            else if(Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A))
             {
                 Incrementercurseur(false);
             }
