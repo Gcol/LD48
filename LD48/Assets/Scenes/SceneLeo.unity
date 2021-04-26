@@ -341,7 +341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30a5761c08592c4dabe09a5cbf046b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animations: []
+  animations:
+  - {fileID: 5979587672452045538, guid: f764429c4e08873469a29852f13ae22c, type: 3}
 --- !u!4 &528202384
 Transform:
   m_ObjectHideFlags: 0
@@ -642,7 +643,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
