@@ -35,7 +35,7 @@ public class ListeAnimations : MonoBehaviour
               "Regarde bien l'objet ListeAnimations dans ta scene pour vérifier le nombre d'animations");
         if(Instantiate(animations[index].transform.root.gameObject, transform).TryGetComponent(out TomberProfond anim))
         {
-            anim.transform.position = Random.insideUnitSphere *  Random.Range(2f,3f);
+            anim.transform.position = Random.insideUnitSphere *  25f;
         }
     }
 }
