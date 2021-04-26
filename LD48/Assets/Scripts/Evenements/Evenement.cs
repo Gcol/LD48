@@ -34,6 +34,11 @@ public class Evenement : ScriptableObject
         RepliqueRobot.Instance.AfficherTexte(replique.texte);
     }
 
+    public void LancerRepliqueRobot(string replique)
+    {
+        RepliqueRobot.Instance.AfficherTexte(replique);
+    }
+
     public void CacherRepliqueRobot()
     {
         RepliqueRobot.Instance.CacherTexte();

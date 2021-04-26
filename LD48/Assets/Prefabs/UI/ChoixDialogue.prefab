@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optionDialogue: {fileID: 11400000, guid: d2e8df4c10bd83e45a1a95b1831913ff, type: 2}
+  PanelFond: {fileID: 6667687386630282767}
   texte: {fileID: 6667687385699222576}
   couleurTexteDefaut: {r: 1, g: 1, b: 1, a: 1}
   estHover: 0
@@ -146,14 +147,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.9
+  m_fontSize: 28.5
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

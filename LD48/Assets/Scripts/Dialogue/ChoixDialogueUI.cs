@@ -8,6 +8,7 @@ using TMPro;
 public class ChoixDialogueUI : MonoBehaviour
 {
     [SerializeField] private OptionDialogue optionDialogue;
+    [SerializeField] private Image PanelFond;
     [SerializeField] private TextMeshProUGUI texte;
     [SerializeField] private Color couleurTexteDefaut;
 
@@ -17,6 +18,8 @@ public class ChoixDialogueUI : MonoBehaviour
     void Start()
     {
         StartCoroutine(Hover());
+        texte.color = couleurTexteDefaut - new Color(0, 0, 0, 1);
+        PanelFond.color = PanelFond.color - new Color(0, 0, 0, 1);
     }
 
     // Update is called once per frame
@@ -53,6 +56,9 @@ public class ChoixDialogueUI : MonoBehaviour
         StartCoroutine(Hover());
     }
 
-
+    public void Choisir()
+    {
+        optionDialogue.quandChoisi.Invoke();
+    }
 
 }

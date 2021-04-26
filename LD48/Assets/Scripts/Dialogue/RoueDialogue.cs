@@ -28,20 +28,29 @@ public class RoueDialogue : MonoBehaviour
     [SerializeField] private float vitesseRotationRoue;
     private int curseur = 0;
 
+    bool estOuvert = false;
+
     void Start()
     {
-        OuvrirRoue(false);
+
     }
 
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+        if(estOuvert)
         {
-            Incrementercurseur(true);
-        }
-        else if(Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.A))
-        {
-            Incrementercurseur(false);
+            if(Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                Incrementercurseur(true);
+            }
+            else if(Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.A))
+            {
+                Incrementercurseur(false);
+            }
+            else if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Return))
+            {
+                listeOptions[curseur].Choisir();
+            }
         }
     }
 
@@ -49,13 +58,68 @@ public class RoueDialogue : MonoBehaviour
     {
         listeOptions.Add(Instantiate(baseOption, rectTrans.transform).GetComponent<ChoixDialogueUI>());
         listeOptions.Last().transform.localRotation = Quaternion.AngleAxis(angleDecalage * (listeOptions.Count -1), Vector3.forward);
-        if (listeOptions.Count == 1) listeOptions.Last().estHover = true;
+        if (listeOptions.Count == 1 && estOuvert) listeOptions.Last().estHover = true;
         listeOptions.Last().Init(optionDialogue);
     }
 
     public void OuvrirRoue(bool ouvrir)
     {
-        rectTrans.gameObject.SetActive(ouvrir);
+        StartCoroutine(Fondu(ouvrir));
+        if(!ouvrir)
+        {
+            listeOptions[curseur].estHover = false;
+        }
+    }
+
+
+    private void Nettoyer()
+    {
+        for (int i = 0; i < listeOptions.Count; i++)
+        {
+            Destroy(listeOptions[i].gameObject);
+        }
+        listeOptions.Clear();
+    }
+
+    private IEnumerator Fondu(bool apparaitre)
+    {
+        Image[] graphismeMenu = GetComponentsInChildren<Image>();
+        TextMeshProUGUI[] textes = GetComponentsInChildren<TextMeshProUGUI>();
+        float tempsFondu = 1.5f;
+        if(apparaitre)
+        {
+            for (float i = 0; i < 1; i += Time.deltaTime / tempsFondu)
+            {
+                foreach (Image image in graphismeMenu)
+                {
+                    image.color += new Color(0, 0, 0, Time.deltaTime / tempsFondu);
+                }
+                foreach (TextMeshProUGUI texte in textes)
+                {
+                    texte.color += new Color(0, 0, 0, Time.deltaTime / tempsFondu);
+                }
+                yield return new WaitForEndOfFrame();
+            }
+            estOuvert = true;
+        }
+        else
+        {
+            for (float i = 1; i > 0; i -= Time.deltaTime / tempsFondu)
+            {
+                foreach (Image image in graphismeMenu)
+                {
+                    image.color -= new Color(0, 0, 0, Time.deltaTime / tempsFondu);
+                }
+                foreach (TextMeshProUGUI texte in textes)
+                {
+                    texte.color -= new Color(0, 0, 0, Time.deltaTime / tempsFondu);
+                }
+                yield return new WaitForEndOfFrame();
+            }
+            Nettoyer();
+            estOuvert = false;
+        }
+        if (listeOptions.Count >= 1 && estOuvert) listeOptions[0].estHover = true;
     }
 
     public void Incrementercurseur(bool increm)
